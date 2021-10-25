@@ -85,11 +85,19 @@
             //5. Add an item to the list; it can say whatever you want.
             $('ol').append('<li>I like to add things to lists!</li>');
             //6. Scratch that; the list is silly. Empty the aside and put a paragraph in it apologizing for the list’s existence.
-
+            $('aside').empty().append("<p>So sorry this list ever existed!!!</p>");
             //7. When you change the numbers in the three inputs on the bottom, the background color of the body should change to match whatever the three values in the inputs are.
-
+            $(".form-control").on('keyup blur change', function () {
+                let red = $(".form-control").eq(0).val();
+                let blue = $(".form-control").eq(1).val();
+                let green = $(".form-control").eq(2).val();
+                $("body").css("background-color",
+                    "rgb(" + red + "," + green + "," + blue + ")");
+            });
             //8. Add an event listener so that when you click on the image, it is removed from the DOM.
-
+            $('img').on('click', function () {
+                $(this).remove();
+            });
         });
     </script>
 </body>
