@@ -15,12 +15,13 @@ $(function () {
         moviesList.push(movieData);
 
         $("#movie-table-body").append(appendHTML);
-        $("new-movie-form").trigger("reset");
+        $("#new-movie-form").trigger("reset");
     });
 
     $("tbody").on("click", ".btn.btn-danger", function (e) {
-        let indexToRemoveAt = moviesList.findIndex(movie => movie.currentId === +$(e.target).data("deleteId"))
-        moviesList.splice(indexToRemoveAt, 1)
+        let indexToRemoveAt = moviesList.findIndex(movie => movie.currentId === +$(e.target).data("deleteId"));
+
+        moviesList.splice(indexToRemoveAt, 1);
 
         $(e.target).closest("tr").remove();
     });
